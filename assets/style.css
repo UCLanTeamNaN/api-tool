@@ -1,0 +1,24 @@
+* {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    margin: 0.5vw;
+}
+
+body {
+    background-color: #2C2F33;
+    margin: 1.6vw;
+}
+
+a {
+    color: #F6AE2D;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.box {
+    border: #F6AE2D;
+    border-style: dotted;
+}
