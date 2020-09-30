@@ -125,13 +125,13 @@ class Game:
 
         sessionId = data['data'][0].strip('"')
         print(f"\n🎉 {playerName} has joined the game!")
-        print("🔑 Session token: {sessionId}")
+        print(f"🔑 Session token: {sessionId}")
 
         print("❗ fwcli can save this token and use it with commands that require tokens later.")
         if input("❓ Save token to local machine? [Y/n] ").lower() == "n": return print("✅ All done.")
 
         with open(".sessiontoken", "w+") as f:
-            f.write(sessionToken)
+            f.write(sessionId)
         
         print("✅ Written .sessiontoken to disk.")
 
