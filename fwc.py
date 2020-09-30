@@ -138,7 +138,7 @@ class Game:
     def players(self, gameId):
         """
         Get all players in game game"""
-        print(f"📕 Documentation: {docsUrl}/players.md#get-players-in-current-game")
+        print(f"📕 Documentation: {docsUrl}/games.md#get-players-in-current-game")
 
         data = fetch(f"/getPlayers?gameID={gameId}")
 
@@ -158,7 +158,7 @@ class Player:
     def move(self, destination, ticket):
         """
         Move your player to a new destination and use a colour of ticket"""
-        print(f"📕 Documentation: {docsUrl}/games.md#make-move")
+        print(f"📕 Documentation: {docsUrl}/players.md#make-move")
 
         if ticket not in ["yellow", "red", "green"]: return print("❗ Ticket must be yellow/red/green!")
 
