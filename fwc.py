@@ -29,7 +29,9 @@ def fetch(endpoint, parameters=""):
     print(f"⏰ Response time: {r.elapsed}")
     data = csvToObject(r.text)
 
-    if data['status']['code'] != "OK": return exit(f"😢 Failed to get data: {data['status']['description']}")
+    if data['status']['code'] != "OK": 
+        print(f"\n\n😭 Failed to get data:\nError: {data['status']['code']}\nMessage: {data['status']['description']}")
+        return exit()
     
     return data
 
