@@ -162,7 +162,7 @@ class Player:
 
         if ticket not in ["yellow", "red", "green"]: return print("❗ Ticket must be yellow/red/green!")
 
-        data = fetch(f"/makeMove;jsessionid={getToken()}?destination={destination}&ticket=ticket")
+        data = fetch(f"/makeMove;jsessionid={getToken()}?destination={destination}&ticket={ticket}")
 
         print("✅ Moved.")
 
