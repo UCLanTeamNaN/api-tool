@@ -182,7 +182,38 @@ class Player:
 def leaderboard():
     """
     Get the current leaderboard"""
-    print("😭 Not yet implmented.")
+    data = fetch(f"/getLeaderboard")
+    topScore = 0
+    topScoreTeam = ""
+    
+    scores = []
+
+    for team in data['data']:
+        name, points = team.split(",")
+        
+        name = name.strip('"')
+        points = float(points.strip('"'))
+
+        scores.append((name, points))
+
+    scores.sort(key=lambda x:x[1])
+    scores.reverse()
+
+    for team in scores:
+        name, points = team[0], team[1]
+
+        if name == "NoName8A":
+            print(f"🤼 ❗ {name} - {points}")
+        else:
+            print(f"🤼 {name} - {points}")
+
+        if float(points) > topScore:
+            topScore = float(points)
+            topScoreTeam = name
+
+    print("\n❗* - Team 8A - Developers of api-tool.")
+
+    print(f"\n--------\n🎉Top Scoring Team 🎉\n{topScoreTeam}\nScore: {topScore} points.")
 
 # Setup CLI
 if __name__ == "__main__":
