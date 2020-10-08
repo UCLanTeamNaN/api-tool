@@ -185,6 +185,7 @@ def leaderboard():
     data = fetch(f"/getLeaderboard")
     topScore = 0
     topScoreTeam = ""
+    fullPointsCount = 0
     
     scores = []
 
@@ -204,6 +205,7 @@ def leaderboard():
     for team in scores:
         name, points = team[0], team[1]
 
+        fullPointsCount += points
         if name == "NoName8A":
             print(f"🤼 ({position}/{len(scores)}) ❗ {name} - {points}")
         else:
@@ -218,6 +220,7 @@ def leaderboard():
     print("\n❗* - Team 8A - Developers of api-tool.")
 
     print(f"\n--------\n🎉Top Scoring Team 🎉\n{topScoreTeam}\nScore: {topScore} points.")
+    print(f"Total number of points awarded: {fullPointsCount}")
 
 # Setup CLI
 if __name__ == "__main__":
