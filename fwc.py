@@ -199,17 +199,21 @@ def leaderboard():
     scores.sort(key=lambda x:x[1])
     scores.reverse()
 
+    position = 1
+
     for team in scores:
         name, points = team[0], team[1]
 
         if name == "NoName8A":
-            print(f"🤼 ❗ {name} - {points}")
+            print(f"🤼 ❗ ({position}/{len(scores)}) {name} - {points}")
         else:
-            print(f"🤼 {name} - {points}")
+            print(f"🤼 ({position}/{len(scores)}) {name} - {points}")
 
         if float(points) > topScore:
             topScore = float(points)
             topScoreTeam = name
+
+        position += 1
 
     print("\n❗* - Team 8A - Developers of api-tool.")
 
