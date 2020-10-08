@@ -205,7 +205,7 @@ def leaderboard():
         name, points = team[0], team[1]
 
         if name == "NoName8A":
-            print(f"🤼 ❗ ({position}/{len(scores)}) {name} - {points}")
+            print(f"🤼 ({position}/{len(scores)}) ❗ {name} - {points}")
         else:
             print(f"🤼 ({position}/{len(scores)}) {name} - {points}")
 
