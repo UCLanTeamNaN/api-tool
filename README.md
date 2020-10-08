@@ -28,6 +28,7 @@ fwc game start - Exit lobby & start game
 fwc player move 5 yellow - Move your player to position 5 using a yellow ticket
 fwc game players 53 - Get players in the game 
 fwc player position - Get your player's position
+fwc leaderboard - Get current leaderboard
 ```
 
 ## Token
