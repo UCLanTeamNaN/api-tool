@@ -32,6 +32,10 @@ def fetch(endpoint, parameters=""):
     if data['status']['code'] != "OK": 
         print(f"\n\n😭 Failed to get data:\nError: {data['status']['code']}\nMessage: {data['status']['description']}")
         return exit()
+
+    if os.path.exists(".fwctest"):
+        print("‼ Found .fwctest, showing data:")
+        print(data)
     
     return data
 
