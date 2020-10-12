@@ -156,6 +156,38 @@ class Game:
 
             print(f"\n---\n🤺 Player Name: {name}\n🔴 Player Colour: {colour}")
 
+    def drxlog(self, gameID):
+        """
+        Get Dr. X Ticket Log from a game"""
+        print(f"📕 Documentation: {docsUrl}/game.md#get-drx-history-log")
+
+        data = fetch(f"/getDrXLog?gameID={gameID}")
+
+        print(f"\n\nDr. X History for {gameID}:\n")
+
+        for event in data['data']:
+            colour = event.strip('"')
+            print(f"-> {colour}")
+
+    def locations(self, gameID):
+        """
+        Get game players locations & ticket counts."""
+        print(f"📕 Documentation: {docsUrl}/game.md#get-player-locations--ticket-counts")
+        
+        data = fetch(f"/getPlayerDetails?gameID={gameID}")
+
+        print(f"\n\nPlayers in {gameID}: \n")
+
+        for player in data['data']:
+            player = player.split(",")
+            name = player[0].strip('"')
+            colour = player[1].strip('"')
+            location = player[2].strip('"')
+            yellow_tickets = player[3].strip('"')
+            green_tickets = player[4].strip('"')
+            red_tickets = player[5].strip('"')
+
+            print(f"🧑 Name: {name} ({colour}) - location: {location} - tickets: Y: {yellow_tickets}, G: {green_tickets}, R: {red_tickets}")
 
 class Player:
     """
